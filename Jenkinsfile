@@ -10,7 +10,7 @@ pipeline {
 
         stage('2. Deploy to Apache') {
             steps {
-                echo 'Deploying website files to Apache...'
+                echo 'Deploying website files to Apache web root...'
                 sh 'cp -rf * /var/www/html/'
             }
         }
@@ -18,10 +18,10 @@ pipeline {
 
     post {
         success {
-            echo 'Deployment successful! Site is live.'
+            echo 'Website deployed successfully!'
         }
         failure {
-            echo 'Pipeline failed during deployment.'
+            echo 'Deployment failed.'
         }
     }
 }
